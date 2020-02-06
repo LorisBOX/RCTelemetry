@@ -7,20 +7,9 @@ void throttle()
     bNewThrottleSignal = false;
   }
 
-  DATA2.rad = radio_thr;
-  esc.writeMicroseconds(radio_thr);
+  TELEM.rad = radio_thr;
+
   
-  /*
-  if (DATA2.rpm < RPMLIMIT)
-  {
-    rad_last = DATA2.rad;
-    esc.writeMicroseconds(DATA2.rad);
-  }
-  else
-  {
-    esc.writeMicroseconds(rad_last);
-  }
-  */
 
 }
 

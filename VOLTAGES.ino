@@ -1,16 +1,14 @@
 void volts()
 {
   volt = analogRead(VOLT_PIN) * refVcc / 1024 * cells;
-  uint8_t voltint = (volt * 10);
-  Volt.addValue(voltint);
-  DATA2.bat = Volt.getAverage();
+  TELEM.bat = (volt * 10);
   
   //
-  uint8_t fuelmap = map(DATA2.bat, 65, 86, 0, 100);
-  fuel = constrain(fuelmap, 0, 100);
+  uint8_t fuelmap = map(TELEM.bat, 65, 86, 0, 100);
+  uint8_t fuel = constrain(fuelmap, 0, 100);
   //
   
-  if (DATA2.bat < voltmin * 10)
+  if (volt < voltmin)
   voltalarm = true;
   else
   voltalarm = false;

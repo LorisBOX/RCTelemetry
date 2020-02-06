@@ -4,5 +4,5 @@ void datasend()
     ETin.receiveData();
     
     // Debug serial
-   //Serial.println (DATA2.rpm);   
+   //Serial.println (TELEM.tmot);   
   }
